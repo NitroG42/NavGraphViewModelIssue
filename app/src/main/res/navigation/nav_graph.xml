@@ -9,9 +9,18 @@
         android:id="@+id/menu_home"
         android:name="com.nitrog42.navgraphviewmodelissue.HomeFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_home"/>
-    <navigation android:id="@+id/scope"
-        app:startDestination="@id/AFragment">
+        tools:layout="@layout/fragment_home" />
+    <navigation
+        android:id="@+id/menu_list"
+        app:startDestination="@id/list">
+        <fragment
+            android:id="@+id/list"
+            android:name="com.nitrog42.navgraphviewmodelissue.ListFragment"
+            android:label="ListFragment">
+            <action
+                android:id="@+id/action_menu_list_to_scope"
+                app:destination="@id/AFragment" />
+        </fragment>
         <fragment
             android:id="@+id/CFragment"
             android:name="com.nitrog42.navgraphviewmodelissue.CFragment"
@@ -28,20 +37,13 @@
         <fragment
             android:id="@+id/BFragment"
             android:name="com.nitrog42.navgraphviewmodelissue.BFragment"
-            android:label="InnerScopeWorkingFragment" >
+            android:label="InnerScopeWorkingFragment">
             <action
                 android:id="@+id/action_BFragment_to_CFragment"
                 app:destination="@id/CFragment"
-                app:popUpTo="@id/AFragment"
+                app:popUpTo="@id/list"
                 app:popUpToInclusive="true" />
         </fragment>
     </navigation>
-    <fragment
-        android:id="@+id/menu_list"
-        android:name="com.nitrog42.navgraphviewmodelissue.ListFragment"
-        android:label="ListFragment" >
-        <action
-            android:id="@+id/action_menu_list_to_scope"
-            app:destination="@id/scope" />
-    </fragment>
+
 </navigation>

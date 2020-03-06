@@ -14,7 +14,7 @@ import androidx.navigation.navGraphViewModels
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
 class CFragment : Fragment(R.layout.fragment_c) {
-    val viewModel: SharedViewModel by navGraphViewModels(R.id.scope)
+    val viewModel: SharedViewModel by navGraphViewModels(R.id.menu_list)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
