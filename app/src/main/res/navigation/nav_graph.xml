@@ -3,41 +3,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/menu_home">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.nitrog42.navgraphviewmodelissue.FirstFragment"
+        android:id="@+id/menu_home"
+        android:name="com.nitrog42.navgraphviewmodelissue.HomeFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-        <action
-            android:id="@+id/action_FirstFragment_to_scope"
-            app:destination="@id/scope" />
-    </fragment>
+        tools:layout="@layout/fragment_home"/>
     <navigation android:id="@+id/scope"
-        app:startDestination="@id/SecondFragment">
+        app:startDestination="@id/AFragment">
         <fragment
-            android:id="@+id/exitFragment"
-            android:name="com.nitrog42.navgraphviewmodelissue.ExitFragment"
+            android:id="@+id/CFragment"
+            android:name="com.nitrog42.navgraphviewmodelissue.CFragment"
             android:label="ExitFragment" />
         <fragment
-            android:id="@+id/SecondFragment"
-            android:name="com.nitrog42.navgraphviewmodelissue.SecondFragment"
+            android:id="@+id/AFragment"
+            android:name="com.nitrog42.navgraphviewmodelissue.AFragment"
             android:label="@string/second_fragment_label"
-            tools:layout="@layout/fragment_second">
+            tools:layout="@layout/fragment_a">
             <action
-                android:id="@+id/action_SecondFragment_to_innerScopeWorkingFragment"
-                app:destination="@id/innerScopeWorkingFragment" />
+                android:id="@+id/action_AFragment_to_BFragment"
+                app:destination="@id/BFragment" />
         </fragment>
         <fragment
-            android:id="@+id/innerScopeWorkingFragment"
-            android:name="com.nitrog42.navgraphviewmodelissue.InnerScopeWorkingFragment"
+            android:id="@+id/BFragment"
+            android:name="com.nitrog42.navgraphviewmodelissue.BFragment"
             android:label="InnerScopeWorkingFragment" >
             <action
-                android:id="@+id/action_innerScopeWorkingFragment_to_exitFragment"
-                app:destination="@id/exitFragment"
-                app:popUpTo="@id/FirstFragment"
-                app:popUpToInclusive="false" />
+                android:id="@+id/action_BFragment_to_CFragment"
+                app:destination="@id/CFragment"
+                app:popUpTo="@id/AFragment"
+                app:popUpToInclusive="true" />
         </fragment>
     </navigation>
+    <fragment
+        android:id="@+id/menu_list"
+        android:name="com.nitrog42.navgraphviewmodelissue.ListFragment"
+        android:label="ListFragment" >
+        <action
+            android:id="@+id/action_menu_list_to_scope"
+            app:destination="@id/scope" />
+    </fragment>
 </navigation>
