@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FirstFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.nitrog42.navgraphviewmodelissue.FirstFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
+        <action
+            android:id="@+id/action_FirstFragment_to_scope"
+            app:destination="@id/scope" />
+    </fragment>
+    <navigation android:id="@+id/scope"
+        app:startDestination="@id/SecondFragment">
+        <fragment
+            android:id="@+id/exitFragment"
+            android:name="com.nitrog42.navgraphviewmodelissue.ExitFragment"
+            android:label="ExitFragment" />
+        <fragment
+            android:id="@+id/SecondFragment"
+            android:name="com.nitrog42.navgraphviewmodelissue.SecondFragment"
+            android:label="@string/second_fragment_label"
+            tools:layout="@layout/fragment_second">
+            <action
+                android:id="@+id/action_SecondFragment_to_innerScopeWorkingFragment"
+                app:destination="@id/innerScopeWorkingFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/innerScopeWorkingFragment"
+            android:name="com.nitrog42.navgraphviewmodelissue.InnerScopeWorkingFragment"
+            android:label="InnerScopeWorkingFragment" >
+            <action
+                android:id="@+id/action_innerScopeWorkingFragment_to_exitFragment"
+                app:destination="@id/exitFragment"
+                app:popUpTo="@id/FirstFragment"
+                app:popUpToInclusive="false" />
+        </fragment>
+    </navigation>
+</navigation>
